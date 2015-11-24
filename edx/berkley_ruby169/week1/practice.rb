@@ -224,5 +224,104 @@ print('result of idiomatic for loop: ')
   print(value)
 end
 
+# ======= BREAK ========
+# Example 1
+puts
+print('result values: ')
+result = [1, 3, 5, 7, 8].each do |value|
+  print(value)
+  break value * 2 if value.even?
+end
+puts
+print(result)
+
+# Python way to write this
+puts
+print('result python values: ')
+for value in [1, 3, 5, 7, 8]
+  print(value)
+  if value % 2 == 0
+    value *= 2
+    break
+  end
+end
+puts
+print(result)
+
+# ========= NEXT ===========
+# Example 1
+puts
+result = [1, 2, 3].map do |value|
+  next if value.even?
+  puts(value)  # 1, 3. 2 is skipped because it is even.
+  value * 2
+end
+puts
+print('result map next: ', result)
+
+# Example 2 --> Another way of writing it
+puts
+result = [1, 2, 3].map do |value|
+  if value.even?
+    next
+  end
+  value * 2
+end
+print('result map next: ', result)
+
+
 # STUDY THE ENUMERATOR CLASS!!!!!!!!!!!
+puts('Entered the enumerator class')
+enumerator = ['a', 'b', 'c'].each
+puts enumerator.class  # --> Enumerator
+enumerator.each_with_index do |item, index|
+  puts "#{index}. #{item}"
+end
+
+# .each is a generator! (External iterator)
+puts
+lol = [1, 2, 3].each
+puts(lol.next)  # => 1
+puts(lol.next)  # => 2
+puts(lol.next)  # => 3
+
+puts
+test = [1, 2, 3, 4, 5]
+test.each do |value|
+  if value == 4..value == 5
+    puts 'hello! it\'s me!'
+  end
+end
+
+puts 'con' 'cat' 'en' 'ation'
+# can't have percent sign at the end!
+puts %q{what is } 'up ' 'cuz!'
+
+expected_result = <<-'EXPECTED'  # EXPECTED has to match EXPECTED at end
+One plus one is #{1 + 1}
+EXPECTED
+
+p expected_result
+
+# ranges
+# Example 1 --> python range equivalent. So I am going to be using this lol :D.
+(0...5).each do |value|
+  puts(value)
+end
+# Example 1 --> python range equivalent. So I am going to be using this lol :D.
+foo ||= []  # creates an empty list foo IF foo does NOT already exist. Idiomatic Ruby
+(0..5).each do |value|
+  puts(value)
+  foo << value
+end
+
+print(foo, "\n")
+print(foo[2..-1], "\n")
+print(foo[2, foo.size], "\n")
+print(foo[2, foo.length], "\n")
+# help(Array)
+start_time = Time.now
+puts(Time.now)
+puts(Time.now.tuesday?)  # returns a boolean
+# puts(start_time[3])
 
