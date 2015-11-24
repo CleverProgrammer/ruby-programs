@@ -323,5 +323,33 @@ print(foo[2, foo.length], "\n")
 start_time = Time.now
 puts(Time.now)
 puts(Time.now.tuesday?)  # returns a boolean
+puts(Time.now.to_s[0..9])
 # puts(start_time[3])
 
+# ====== split or SPLIT ========
+string1 = 'hello'
+print(string1.split(//))  # split by every character.
+puts
+string2 = 'hello boys dog cuz'
+print(string2.split)  # split by every space.
+puts
+string3 = 'hello, boys, dog, cuz'
+print(string3.split(','))  # split by every comma.
+
+puts
+puts(Time.now)
+puts(Time.now.tuesday?)
+if Time.now.monday? then
+  puts('Yayyy')
+else
+  puts('no!!!')
+end
+puts 'starting loop: '
+result ||= []
+times_to_run = gets.chomp.to_i
+(0...times_to_run).each do
+  result << gets.chomp.to_i
+end
+
+result1
+print result1.inject(:+)
